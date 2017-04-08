@@ -17,34 +17,36 @@ import com.sdajava.strategia2.pracowac.RoznoszenieListow;
 public class Pracownik {
     //Contex
 
-    private Pracowac pracowac;
-    private Dojezdzac dojezdzac;
-    private WolnyCzas wolnyCzas;
+    private String nazwaCiecia;
 
 
-    public Pracownik(String workerName){
-        switch (workerName) {
-            case "Mechanik" :
-                System.out.println("\nMechanik:");
-                this.pracowac = new NaprawaSamochodow();
-                this.dojezdzac = new Samochod();
-                this.wolnyCzas = new Silownia();
-            case "Listonosz":
-                System.out.println("\nListonosz:");
-                this.pracowac = new RoznoszenieListow();
-                this.dojezdzac = new Rower();
-                this.wolnyCzas = new Literatura();
-            case "Lekarz":
-                System.out.println("\nLekarz:");
-                this.pracowac = new Leczenie();
-                this.dojezdzac = new Samochod();
-                this.wolnyCzas = new Literatura();
-        }
+    public Pracownik(String nazwaCiecia) {
+        this.nazwaCiecia = nazwaCiecia;
     }
+
 
     public void execute () {
-        pracowac.pracowac();
-        dojezdzac.dojezdzac();
-        wolnyCzas.wolnyCzas();
+        if(nazwaCiecia.equals("Mechanik")) {
+            System.out.println("\n:: Mechanik ::");
+            new NaprawaSamochodow().pracowac();
+            new Samochod().dojezdzac();
+            new Silownia().wolnyCzas();
+        }
+        else if(nazwaCiecia.equals("Listonosz")) {
+            System.out.println("\n:: Listonosz ::");
+            new RoznoszenieListow().pracowac();
+            new Rower().dojezdzac();
+            new Literatura().wolnyCzas();
+        }
+        else if(nazwaCiecia.equals("Lekarz")) {
+            System.out.println("\n:: Lekarz ::");
+            new Leczenie().pracowac();
+            new Samochod().dojezdzac();
+            new Literatura().wolnyCzas();
+        }
     }
 }
+
+
+
+
