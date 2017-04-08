@@ -2,14 +2,11 @@ package com.sdajava.strategia2;
 
 import com.sdajava.strategia2.czasWolny.Literatura;
 import com.sdajava.strategia2.czasWolny.Silownia;
-import com.sdajava.strategia2.czasWolny.WolnyCzas;
-import com.sdajava.strategia2.dojezdzac.Dojezdzac;
-import com.sdajava.strategia2.dojezdzac.Rower;
-import com.sdajava.strategia2.dojezdzac.Samochod;
-import com.sdajava.strategia2.pracowac.Leczenie;
-import com.sdajava.strategia2.pracowac.NaprawaSamochodow;
-import com.sdajava.strategia2.pracowac.Pracowac;
-import com.sdajava.strategia2.pracowac.RoznoszenieListow;
+import com.sdajava.strategia2.dojazd.Rower;
+import com.sdajava.strategia2.dojazd.Samochod;
+import com.sdajava.strategia2.praca.Leczenie;
+import com.sdajava.strategia2.praca.NaprawaSamochodow;
+import com.sdajava.strategia2.praca.RoznoszenieListow;
 
 /**
  * Created by Andrzej on 08.04.2017.
@@ -28,21 +25,21 @@ public class Pracownik {
     public void execute () {
         if(nazwaCiecia.equals("Mechanik")) {
             System.out.println("\n:: Mechanik ::");
-            new NaprawaSamochodow().pracowac();
-            new Samochod().dojezdzac();
-            new Silownia().wolnyCzas();
+            new NaprawaSamochodow().praca();
+            new Samochod().dojezd();
+            new Silownia().czsWolny();
         }
         else if(nazwaCiecia.equals("Listonosz")) {
             System.out.println("\n:: Listonosz ::");
-            new RoznoszenieListow().pracowac();
-            new Rower().dojezdzac();
-            new Literatura().wolnyCzas();
+            new RoznoszenieListow().praca();
+            new Rower().dojezd();
+            new Literatura().czsWolny();
         }
         else if(nazwaCiecia.equals("Lekarz")) {
             System.out.println("\n:: Lekarz ::");
-            new Leczenie().pracowac();
-            new Samochod().dojezdzac();
-            new Literatura().wolnyCzas();
+            new Leczenie().praca();
+            new Samochod().dojezd();
+            new Literatura().czsWolny();
         }
     }
 }
